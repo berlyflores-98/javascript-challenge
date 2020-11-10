@@ -15,7 +15,11 @@ function handleClick(){
     console.log(inputElement);
     // Get the value property of the input element
     var inputValue = inputElement.property("value");
-
+    inputElement.on("change", RemoveTable);
+    function RemoveTable(){
+        // Remove all table rows from tbody (update table)
+        var table = d3.select("tbody").selectAll("tr").remove()
+        };
     //looping through the table to filter on the selected date
     tableData.forEach(items => {
         //creating rows
