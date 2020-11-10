@@ -6,20 +6,24 @@ var tbody = d3.select("tbody");
 // Getting a reference to the button on the page with the id property set to `click-me`
 var button = d3.select("#filter-btn");
 
-button.on("click", handleClick);
+button.on("click", RemoveTable);
+// Select the input element and get the raw HTML node
+var inputElement = d3.select("#datetime");
+// Get the value property of the input element
+
+//inputElement.on("change", RemoveTable);
+function RemoveTable(){
+    // Remove all table rows from tbody (update table)
+    var table = d3.select("tbody").selectAll("tr").remove()
+    updateTable();
+};
+
 
 // YOUR CODE HERE!
-function handleClick(){
-      // Select the input element and get the raw HTML node
-    var inputElement = d3.select("#datetime");
-    console.log(inputElement);
-    // Get the value property of the input element
-    var inputValue = inputElement.property("value");
-    inputElement.on("change", RemoveTable);
-    function RemoveTable(){
-        // Remove all table rows from tbody (update table)
-        var table = d3.select("tbody").selectAll("tr").remove()
-        };
+function updateTable(){
+    var dateElement = d3.select("#datetime");
+    var dateValue = dateElement.property("value");
+
     //looping through the table to filter on the selected date
     tableData.forEach(items => {
         //creating rows
@@ -27,7 +31,7 @@ function handleClick(){
     //looping through each entry
     Object.entries(items).forEach(([key, value]) => {
         //selecting only the ones that have the date selected by user
-        if (inputValue === items.datetime) {
+        if (dateValue === items.datetime||dateValue==="") {
         //putting in the information based on selection
         var cell = row.append("td");
         cell.text(value);
@@ -37,6 +41,7 @@ function handleClick(){
 
 
 });
+
 
 };
 

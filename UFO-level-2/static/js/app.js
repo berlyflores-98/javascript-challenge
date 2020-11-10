@@ -6,16 +6,17 @@ var tbody = d3.select("tbody");
 // Getting a reference to the button on the page with the id property set to `click-me`
 var button = d3.select("#filter-btn");
 
-button.on("click", handleClick);
+button.on("click", RemoveTable);
 
-// YOUR CODE HERE!
-function handleClick(){
-
-    function RemoveTable(){
+function RemoveTable(){
     // Remove all table rows from tbody (update table)
     var table = d3.select("tbody").selectAll("tr").remove()
-    };
-    
+    updateTable();
+};
+
+// YOUR CODE HERE!
+function updateTable(){
+
       // Select the input element and get the raw HTML node
     var dateElement = d3.select("#datetime");
     var cityElement = d3.select("#city");
@@ -23,11 +24,6 @@ function handleClick(){
     var countryElement = d3.select("#country");
     var shapeElement = d3.select("#shape");
 
-    dateElement.on("change", RemoveTable);
-    cityElement.on("change", RemoveTable);
-    stateElement.on("change", RemoveTable);
-    countryElement.on("change", RemoveTable);
-    shapeElement.on("change", RemoveTable);
 
     // Get the value property of the input element
     var dateValue = dateElement.property("value");
@@ -64,5 +60,6 @@ function handleClick(){
 
 
 });
+
 
 };
