@@ -5,7 +5,7 @@ var tbody = d3.select("tbody");
 
 // Getting a reference to the button on the page with the id property set to `click-me`
 var button = d3.select("#filter-btn");
-
+d3.select(window).on("load", updateTable);
 button.on("click", RemoveTable);
 
 function RemoveTable(){
@@ -28,11 +28,11 @@ function updateTable(){
 
 
     // Get the value property of the input element
-    var dateValue = dateElement.property("value");
-    var cityItem = cityElement.property("value");
-    var stateItem = stateElement.property("value");
-    var countryItem = countryElement.property("value");
-    var shapeItem = shapeElement.property("value");
+    var dateValue = dateElement.node().value;
+    var cityItem = cityElement.node().value;
+    var stateItem = stateElement.node().value;
+    var countryItem = countryElement.node().value;
+    var shapeItem = shapeElement.node().value;
 
     //making sure all values are lowercased
     var cityValue = cityItem.toLowerCase();
@@ -62,6 +62,10 @@ function updateTable(){
 
 
 });
-
+d3.select("#datetime").node().value = "";
+d3.select("#city").node().value = "";
+d3.select("#state").node().value = "";
+d3.select("#country").node().value = "";
+d3.select("#shape").node().value = "";
 
 };

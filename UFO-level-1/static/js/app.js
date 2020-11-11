@@ -5,6 +5,7 @@ var tbody = d3.select("tbody");
 
 // Getting a reference to the button on the page with the id property set to `click-me`
 var button = d3.select("#filter-btn");
+d3.select(window).on("load", updateTable);
 
 button.on("click", RemoveTable);
 // Select the input element and get the raw HTML node
