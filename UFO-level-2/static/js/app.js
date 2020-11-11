@@ -9,6 +9,8 @@ var button = d3.select("#filter-btn");
 button.on("click", RemoveTable);
 
 function RemoveTable(){
+    //preventing from not reloading
+    d3.event.preventDefault();
     // Remove all table rows from tbody (update table)
     var table = d3.select("tbody").selectAll("tr").remove()
     updateTable();

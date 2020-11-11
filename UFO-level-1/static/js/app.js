@@ -13,6 +13,8 @@ var inputElement = d3.select("#datetime");
 
 //inputElement.on("change", RemoveTable);
 function RemoveTable(){
+    //preventing from not reloading
+    d3.event.preventDefault();
     // Remove all table rows from tbody (update table)
     var table = d3.select("tbody").selectAll("tr").remove()
     updateTable();
@@ -21,9 +23,11 @@ function RemoveTable(){
 
 // YOUR CODE HERE!
 function updateTable(){
+   
     var dateElement = d3.select("#datetime");
-    var dateValue = dateElement.property("value");
-
+    //var dateValue = dateElement.property("value");
+    var dateValue = dateElement.node().value;
+    
     //looping through the table to filter on the selected date
     tableData.forEach(items => {
         //creating rows
@@ -41,6 +45,7 @@ function updateTable(){
 
 
 });
+d3.select("#datetime").node().value = "";
 
 
 };
