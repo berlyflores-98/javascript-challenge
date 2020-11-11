@@ -6,3 +6,8 @@ The purpose of this repository is a way to be able to display and filter through
 The first gif below is an example of the UFO- Level 1 exercise. As you can see, you are able to filter by dates. If you wish to view all of the data, then select Filter Table. If you wish to see for any date between 1/1/2010 and 1/13/2010, then enter the date and click Filter Table.
 
 ![Alt Text](https://media.giphy.com/media/Ort0rdsp50DtpClU1m/giphy.gif)
+
+
+The below gif is an example of the UFO-Level 2 exercise. In this level you are able to filter by date, city, state, country and shape. The date range is the same as above. 
+
+![Alt Text2](https://media.giphy.com/media/vIAEo7rWQgPW3qd5iG/giphy.gif)
